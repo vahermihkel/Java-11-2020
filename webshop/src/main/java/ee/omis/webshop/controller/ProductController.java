@@ -33,7 +33,6 @@ public class ProductController {
 
     @RequestMapping(value="/save", method = RequestMethod.POST)
     public String addProduct(@ModelAttribute("product") Product product) {
-        System.out.println(product);
         productService.saveProduct(product);
         return "redirect:/home";
     }
