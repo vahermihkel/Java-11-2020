@@ -39,10 +39,17 @@ public class ProductController {
     }
 
     @RequestMapping(value="/delete/{id}", method = RequestMethod.GET)
-    public String deleteProduct(@PathVariable String id) {
-        Product product = productService.getProduct(Long.valueOf(id));
+    public String deleteProduct(@PathVariable Long id) {
+        Product product = productService.getProduct(id);
         productService.deleteProduct(product);
         return "redirect:/home";
+    }
+
+    @RequestMapping(value = "/product/{id}")
+    public String getOneProduct(@PathVariable Long id, Model model) {
+        Product product = productService.getProduct(id);
+        model.addAttribute("product", product);
+        return "product-view";
     }
 
 }
