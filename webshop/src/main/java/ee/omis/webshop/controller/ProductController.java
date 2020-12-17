@@ -52,4 +52,17 @@ public class ProductController {
         return "product-view";
     }
 
+    @RequestMapping(value = "/product/edit/{id}")
+    public String editProduct(@PathVariable Long id, Model model) {
+        Product product = productService.getProduct(id);
+        model.addAttribute("product", product);
+        return "product-edit";
+    }
+
+    @RequestMapping(value = "/product/editsave", method = RequestMethod.POST)
+    public String saveEditProduct(@ModelAttribute("product") Product product) {
+        productService.saveProduct(product);
+        return "redirect:/product/" + product.getId();
+    }
+
 }
