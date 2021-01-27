@@ -1,5 +1,6 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { ProductService } from '../home/product.service';
 
 @Component({
   selector: 'app-product-add',
@@ -8,14 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductAddComponent implements OnInit {
 
-  product = {name: "Beer", description: "Cold beer", price: 5.99, imageSrc: "", isActive: true};
 
-  constructor(private http: HttpClient) { }
+  constructor(private productService: ProductService) { }
 
   ngOnInit(): void {
-    this.http.post("http://localhost:8080/save", this.product ).subscribe(response => {
-      console.log(response);
-     })
+  }
+
+  onSubmit(form: NgForm) {
+    this.onAddProduct(form.value);
+  }
+
+  onAddProduct(product: any) {
+    this.productService.addProduct(product);
   }
 
 }

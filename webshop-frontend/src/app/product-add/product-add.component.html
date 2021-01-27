@@ -1,1 +1,16 @@
-<p>product-add works!</p>
+<form (ngSubmit)="onSubmit(productAddForm)" #productAddForm="ngForm">
+    <label>Toote nimetus</label>
+    <input class="form-control" type="text" ngModel name="name">
+    <label>Toote kirjeldus</label>
+    <input class="form-control" type="text" ngModel name="description">
+    <label>Toote hind</label>
+    <input class="form-control" type="number" ngModel name="price">
+    <label>Toote pilt</label>
+    <input class="form-control" type="text" ngModel name="imageSrc">
+    <div class="custom-control custom-switch">
+        <input class="custom-control-input" type="checkbox" id="customSwitch1" ngModel name="isActive">
+        <label class="custom-control-label">Kas aktiivne</label>
+    </div>
+    <button class="btn btn-success" type="submit">Salvesta toode</button>
+</form>
+

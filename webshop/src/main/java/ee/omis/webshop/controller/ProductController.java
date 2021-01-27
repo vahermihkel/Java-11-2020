@@ -11,6 +11,7 @@ import java.util.List;
 
 @Controller
 @RestController
+@CrossOrigin(origins = "http://localhost:4200")
 public class ProductController {
 
     private final ProductService productService;
@@ -32,7 +33,7 @@ public class ProductController {
     }
 
     @RequestMapping(value="/save", method = RequestMethod.POST)
-    public String addProduct(@ModelAttribute("product") Product product) {
+    public String addProduct(@RequestBody Product product) {
         productService.saveProduct(product);
         return "redirect:/home";
     }
