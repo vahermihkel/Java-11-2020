@@ -1,1 +1,15 @@
-<p>product-edit works!</p>
+<form (ngSubmit)="onSubmit(productEditForm)" [formGroup]="productEditForm">
+    <label>Toote nimetus</label>
+    <input class="form-control" type="text" formControlName="name">
+    <label>Toote kirjeldus</label>
+    <input class="form-control" type="text" formControlName="description">
+    <label>Toote hind</label>
+    <input class="form-control" type="number" formControlName="price">
+    <label>Toote pilt</label>
+    <input class="form-control" type="text" formControlName="imageSrc">
+    <div class="custom-control custom-switch">
+        <input class="custom-control-input" type="checkbox" id="customSwitch1" formControlName="isActive">
+        <label class="custom-control-label">Kas aktiivne</label>
+    </div>
+    <button class="btn btn-success" type="submit">Salvesta toode</button>
+</form>

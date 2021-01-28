@@ -1,11 +1,10 @@
-<a href="/add-product">Lisa uus toode</a>
-<table>
-  <div *ngFor="let product of productList">
+<table style="margin: 10% 20%">
+  <div *ngFor="let product of productList" class="product">
     <tr>
-      <td>{{ product.name}}</td>
-      <td>{{product.description}}</td>
-      <td>{{product.price}}</td>
-      <td>{{product.id}}</td>
+      <td style="width: 200px">{{ product.name}}</td>
+      <td style="width: 100px">{{product.description}}</td>
+      <td style="width: 100px; text-align: right">{{product.price}} €</td>
+      <td style="width: 40px; text-align: center">{{product.id}}</td>
       <td><a [routerLink]="['/product', product.id]">Vaata toodet</a></td>
       <td><a [routerLink]="['/delete', product.id]">Kustuta</a></td>
       <td><a [routerLink]="['/product/edit', product.id]">Muuda</a></td>

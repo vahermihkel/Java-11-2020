@@ -10,7 +10,8 @@ import { ProductViewComponent } from './product-view/product-view.component';
 import { ProductEditComponent } from './product-edit/product-edit.component';
 import { NavbarComponent } from './global/navbar/navbar.component';
 import { FooterComponent } from './global/footer/footer.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NotFoundComponent } from './global/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -20,13 +21,15 @@ import { FormsModule } from '@angular/forms';
     ProductViewComponent,
     ProductEditComponent,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { ProductService } from '../home/product.service';
+import { Router } from '@angular/router';
+import { DatabaseService } from '../home/database.service';
 
 @Component({
   selector: 'app-product-add',
@@ -10,7 +11,8 @@ import { ProductService } from '../home/product.service';
 export class ProductAddComponent implements OnInit {
 
 
-  constructor(private productService: ProductService) { }
+  constructor(private databaseService: DatabaseService,
+     private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -20,7 +22,8 @@ export class ProductAddComponent implements OnInit {
   }
 
   onAddProduct(product: any) {
-    this.productService.addProduct(product);
+    this.databaseService.addProduct(product);
+    this.router.navigateByUrl("home");
   }
 
 }
